@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Year Project | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="ihm.html">In Hand Manipulation for Assembly Lines</a>
+    <a href="fyp.html">Final Year Project</a>
+  </nav>
+
+  <main class="full">
+    <section class="band">
+      <div class="wrap split">
+
+        <div>
+          <figure class="drawing frame">
+            <img src="fyp/threequarter.svg">
+            <figcaption class="title-block">
+              <span>EEzyBotArm mk2</span>
+            </figcaption>
+          </figure>
+        </div>
+
+
+        <div>
+          <span class="tag">Final Year Project</span>
+            <h1>Connect 4 Playing Robotic Arm</h1>
+            <p>A Connect 4 playing robot to be used as an outreach demonstrator for Imperial Open Days, to give prospective students an idea about what can be learnt studying EIE.</p>
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+
+
+    <section class="band band-dark">
+      <div class="wrap split-media">
+        <span class="tag">Sec 01</span>
+        
+
+        <div class="wrap split split-media">
+          <div>
+            <figure>
+              <img src="fyp/diagram.png">
+            </figure>
+          </div>
+
+          <div>
+            <h2>Design</h2>
+
+            <p>The base design used for the robot is the EEZYbotARM Mk2, an open source 3D printable robot. The robot uses a customised <strong>vacuum gripper</strong> to pick up the discs since they are light and flat.</p>
+
+          
+            <p>The hobby servos used by the EEZYbotARM do not have accurate positional feedback, so additional external feedback was necessary, via the two raspberry pi cameras.</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-blue">
+      <div class="wrap split-media">
+        <span class="tag">Sec 02</span>
+        
+
+        <div class="wrap split split-media">
+          <div>
+            <h2>System Overview</h2>
+            <figure class = "drawing">
+              <img src="fyp/system.png">
+            </figure>
+          </div>
+
+          <div>
+            <p>The system runs across two processors. The interface, game loop, vision system, solver and inverse kinematics all run on the Raspberry Pi. </p>
+            <p>   A move is expressed in Cartesian coordinates and converted on the Pi into joint angles via inverse kinematics and then into the calibrated servo angle each joint requires. This is then sent to the Arduino which drives the servos. </p>
+          </div>
+
+        </div>
+    </section>
+
+    <section class="band band-dark">
+      <div class="wrap wide">
+        <span class="tag">Sec 03</span>
+
+
+        <div class="topic-row">
+          <img class="detect-img" src="fyp/disc_detect.png" >
+          <div>
+            <h2>Computer Vision</h2>
+
+            <h3>Discs</h3>
+            <p>Detection of the discs in the pickup area is done by using HSV thresholding and the Hough circle transform. The green dots shown on the detected discs in the image are the estimated centres of each disc. These are used as the target coordinates when picking up discs.</p>
+          </div>
+
+          <img class="detect-img" src="fyp/pose.png">
+          <div>
+            <h3>Pose</h3>
+            <p>The pose of the board is solved from the thirteen ArUco markers fixed to the board. ArUco markers are fiducial markers which have unique black and white patterns. The board’s pose is detected using the PnP, (Perspective-n-Point) method. This method matches the known 3D points of the ArUco markers on the board with their corresponding 2D points from the image. This allows for the transformation from the board frame to the camera frame, which can then be used to work out the distance the robot must move.</p>
+          </div>
+
+          <img class="detect-img" src="fyp/sampling.png">
+          <div>
+            <h3>Game State</h3>
+            <p>Each window in the board is classified as yellow, red or empty based on majority sampling. 19 points are sampled per window, and each votes either yellow or red if it is within the HSV range for that colour. If it is in neither range, it votes for neither yellow nor red. To classify a window the votes for one colour must be 10 or more, and therefore larger than the votes for the other colour. Anything less than 10 is classified as empty. </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="band band-blue">
+      <div class="wrap split-media">
+        <span class="tag">Sec 04</span>
+        
+
+        <div class="wrap split split-media">
+          <div>
+            <figure>
+              <img src="fyp/ui.png">
+            </figure>
+          </div>
+
+          <div>
+            <h2>User Interface</h2>
+
+            <p>The UI is used to illustrate different aspects of how the robot functions. This is important since the robot is a demonstrator and so it should avoid functioning like a ‘black box’.</p>
+            <p>The UI was designed to be easy to use since users on an open day would be unfamiliar with the robot. e.g it displays when the user is allowed to place a disc and when there is an error, so user can resolve them.</p>
+
+          </div>
+        </div>
+    </section>
+
+    <!-- <section class="band band-dark">
+      <div class="wrap">
+        <span class="tag">Sec 05</span>
+        <h2>Demo Video</h2>
+        <video controls src="images/connect4-demo.mp4"></video>
+      </div>
+    </section> -->
+  </main>
+
+  <footer>
+    <p></p>
+  </footer>
+</body>
+</html>

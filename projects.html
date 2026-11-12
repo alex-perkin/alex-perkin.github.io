@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="ihm.html">In Hand Manipulation for Assembly Lines</a>
+    <a href="fyp.html">Final Year Project</a>
+  </nav>
+
+  <main class="wide">
+    <h1>Projects</h1>
+    <p>A list of projects I've been involved in during my time at Imperial College London.</p>
+
+    <div class="project-grid">
+
+      <article class="project">
+        <img src="images/synth.png" alt="">
+        <div>
+        <h3>Embedded Music Synthesiser</h3>
+        <p>Developed FreeRTOS software for a polyphonic music synthesiser on an STM32 microcontroller. Implemented per key ADSR envelopes and other DSP effects.</p>
+        <p>Redesigned the audio path to use DMA double buffering and analysed the worst case execution time of each task to show that all deadlines were met.</p>
+      </div>
+      </article>
+
+      <article class="project">
+        <img src="images/montecarlo.jpg" alt="">
+        <div>
+        <h3>Monte Carlo Localisation</h3>
+        <p>Implemented Monte Carlo localisation on a differential drive robot with a sonar, using Python. Visualised the uncertainty in the robot's position in real time as it moved and took sonar readings.</p>
+      </div>
+      </article>
+
+      <article class="project">
+        <img src="images/marsrover.png" alt="">
+        <div>
+        <h3>'Mars Rover' Computer Vision</h3>
+        <p>Implemented the computer vision subsystem which identified several pre-defined obstacles and returned their coordinates in 3D space relative to the rover.</p>
+        </div>
+      </article>
+
+          <article class="project">
+        <img src="images/robman.jpg" alt="">
+        <div>
+          <h3>Robotic Manipulation using Open Manipulator X</h3>
+          <p>Completed a number of manipulation tasks using the Open Manipulator X including: picking and placing a cube, picking and placing/rotating cubes to form a 3 cube stack and picking up a pen to draw shapes on a whiteboard.
+            I first modelled the robot and solved its inverse kinematics. I used basic MATLAB and the Dynamixel SDK only.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="images/infoproc.png" alt=" ">
+        <div>
+          <h3>C/MIPS Compiler</h3>
+          <p>Created a compiler using C++, Lex, and YACC to convert pre-processed C90 code into MIPS assembly code.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="images/compvis.png" alt=" ">
+        <div>
+          <h3>Brain Tumour Image Segmentation</h3>
+          <p>Developed and trained a convolutional neural network for brain tumour image segmentation using PyTorch.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="images/mips.cpu.png" alt="">
+        <div>
+          <h3>MIPS CPU</h3>
+          <p>Created and implemented a functional MIPS32 processor in SystemVerilog, accompanied by a test-bench for validating the functional accuracy of the CPU design.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="images/mu0.png" alt="">
+        <div>
+          <h3>MU0 CPU Design Project</h3>
+          <p>Designed and tested a dual-core MU0-Arm CPU with UART input, bitstream output, and floating-point arithmetic capabilities.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="images/spice.png" alt="">
+        <div>
+          <h3>C++ Circuit Simulator</h3>
+          <p>Developed a basic C++ circuit simulator capable of simulating circuits with resistors, capacitors, inductors, voltage sources, current sources, and diodes.</p>
+        </div>
+      </article>
+
+
+
+    </div>
+
+
+  </main>
+</body>
+</html>
