@@ -1,9 +1,31 @@
-const root = document.documentElement;
+// only update pointer close to glow and draw max once per frame
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  const glow = document.createElement("div");
+  glow.className = "pointer-glow";
+  glow.setAttribute("aria-hidden", "true");
+  document.body.appendChild(glow);
 
-window.addEventListener("pointermove", (e) => {
-  root.style.setProperty("--mx", e.clientX + "px");
-  root.style.setProperty("--my", e.clientY + "px");
-});
+  let pointerX = 0;
+  let pointerY = 0;
+  let framePending = false;
+
+  window.addEventListener("pointermove", (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+
+    if (framePending) return;
+    framePending = true;
+
+    requestAnimationFrame(() => {
+      const left = pointerX - 220;
+      const top = pointerY - 220;
+      glow.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+      // Keep highlighted grid aligned with background grid
+      glow.style.backgroundPosition = `${-left}px ${-top}px`;
+      framePending = false;
+    });
+  }, { passive: true });
+}
 
 const targets = document.querySelectorAll(".band > .wrap, .band > .flush-split");
 
