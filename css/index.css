@@ -1,0 +1,141 @@
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 6rem 0 18rem;
+}
+
+.hero h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.hero-text p {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+.profile {
+  flex-shrink: 0;
+  width: 25rem;
+  height: 25rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  outline: 1px solid var(--line);
+  outline-offset: 10px;
+}
+
+.edu-row {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.edu-row h3 {
+  margin: 0 0 0.25rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.edu-row h4 {
+  margin: 0 0 0.5rem;
+}
+
+.edu-row h4:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.edu-row p,
+.edu-row ul {
+  margin: 0 0 1rem;
+}
+
+.edu-row ul {
+  padding-left: 1.2rem;
+}
+
+.hero-text .command {
+  margin-top: 1.5rem;
+  min-height: 1.7em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.prompt {
+  color: var(--accent);
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6ch;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.band-center {
+  text-align: center;
+}
+
+.band-center h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.band-center h2::after {
+  transform-origin: center;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    flex-direction: column-reverse;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .edu-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}

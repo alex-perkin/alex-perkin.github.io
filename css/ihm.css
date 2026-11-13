@@ -1,0 +1,61 @@
+
+.band-light {
+  background: rgba(233, 237, 242, 0.88);
+  color: #12306b;
+}
+
+.band-light .tag {
+  color: #9a5500;
+}
+
+.band-flush {
+  padding: 0;
+}
+
+.flush-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.flush-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem 4rem max(1.5rem, calc((100vw - 56rem) / 2 + 1.5rem));
+}
+
+.flush-split img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  mix-blend-mode: multiply;
+  border: 0;
+}
+
+@media (max-width: 40rem) {
+  .flush-split {
+    grid-template-columns: 1fr;
+  }
+
+  .flush-text {
+    padding: 3rem 1.5rem;
+  }
+
+  .flush-split img {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 41rem) {
+  .split-video {
+    max-width: 76rem;
+    grid-template-columns: 2fr 1fr;
+  }
+}

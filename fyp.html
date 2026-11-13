@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Final Year Project | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fyp.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 
         <div>
           <figure class="drawing frame">
-            <img src="fyp/threequarter.svg">
+            <img src="images/fyp/threequarter.svg">
             <figcaption class="title-block">
               <span>EEzyBotArm mk2</span>
             </figcaption>
@@ -54,7 +55,7 @@
         <div class="wrap split split-media">
           <div>
             <figure>
-              <img src="fyp/diagram.png">
+              <img src="images/fyp/diagram.png">
             </figure>
           </div>
 
@@ -80,7 +81,7 @@
           <div>
             <h2>System Overview</h2>
             <figure class = "drawing">
-              <img src="fyp/system.png">
+              <img src="images/fyp/system.png">
             </figure>
           </div>
 
@@ -98,7 +99,7 @@
 
 
         <div class="topic-row">
-          <img class="detect-img" src="fyp/disc_detect.png" >
+          <img class="detect-img" src="images/fyp/disc_detect.png" >
           <div>
             <h2>Computer Vision</h2>
 
@@ -106,13 +107,13 @@
             <p>Detection of the discs in the pickup area is done by using HSV thresholding and the Hough circle transform. The green dots shown on the detected discs in the image are the estimated centres of each disc. These are used as the target coordinates when picking up discs.</p>
           </div>
 
-          <img class="detect-img" src="fyp/pose.png">
+          <img class="detect-img" src="images/fyp/pose.png">
           <div>
             <h3>Pose</h3>
             <p>The pose of the board is solved from the thirteen ArUco markers fixed to the board. ArUco markers are fiducial markers which have unique black and white patterns. The board’s pose is detected using the PnP, (Perspective-n-Point) method. This method matches the known 3D points of the ArUco markers on the board with their corresponding 2D points from the image. This allows for the transformation from the board frame to the camera frame, which can then be used to work out the distance the robot must move.</p>
           </div>
 
-          <img class="detect-img" src="fyp/sampling.png">
+          <img class="detect-img" src="images/fyp/sampling.png">
           <div>
             <h3>Game State</h3>
             <p>Each window in the board is classified as yellow, red or empty based on majority sampling. 19 points are sampled per window, and each votes either yellow or red if it is within the HSV range for that colour. If it is in neither range, it votes for neither yellow nor red. To classify a window the votes for one colour must be 10 or more, and therefore larger than the votes for the other colour. Anything less than 10 is classified as empty. </p>
@@ -131,7 +132,7 @@
         <div class="wrap split split-media">
           <div>
             <figure>
-              <img src="fyp/ui.png">
+              <img src="images/fyp/ui.png">
             </figure>
           </div>
 

@@ -1,0 +1,327 @@
+/*Shared stuff used across the site, load this before the style sheet for each page*/
+
+
+:root {
+  --bg: #0b2a4a;
+  --grid-minor: rgba(255, 255, 255, 0.06);
+  --grid-major: rgba(255, 255, 255, 0.14);
+  --line: rgba(255, 255, 255, 0.35);
+  --text: #e6f1ff;
+  --muted: #9db8d6;
+  --accent: #ffb347;
+}
+
+html {
+  font-size: 120%;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--accent);
+}
+
+/*header, nav and footer */
+
+.site-name,
+nav,
+footer {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.site-name {
+  display: block;
+  padding: 1rem 2rem 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.75rem 2rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(11, 42, 74, 0.92);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* page layout and sections */
+
+main {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+main.full {
+  max-width: none;
+  padding: 0;
+}
+
+.wrap {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.band {
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.band:first-child {
+  border-top: 0;
+}
+
+.band-dark {
+  background: rgba(7, 32, 58, 0.75);
+}
+
+.band-blue {
+  background: rgba(18, 64, 107, 0.7);
+}
+
+.band a {
+  overflow-wrap: anywhere;
+}
+
+.band h2 {
+  width: fit-content;
+}
+
+.band h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  transform-origin: left;
+  transition: transform 0.8s ease 0.2s;
+}
+
+/* labels, buttons and vid */
+
+.tag {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+main > img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--line);
+}
+
+.figure {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--line);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.split figure {
+  margin: 0;
+}
+
+.split img,
+.split video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 1px solid var(--line);
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.drawing {
+  max-width: 36rem;
+  margin: 2rem 0;
+  border: 1px solid var(--line);
+}
+
+.drawing img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
+  filter: invert(1);
+}
+
+.title-block {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  border-top: 1px solid var(--line);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.title-block span {
+  padding: 0.5rem 0.75rem;
+  border-right: 1px solid var(--line);
+}
+
+.title-block span:last-child {
+  border-right: 0;
+}
+
+.frame {
+  position: relative;
+  border: 2px solid var(--line);
+}
+
+.frame .figure {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+}
+
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--accent), var(--accent)) top left / 1rem 2px,
+    linear-gradient(var(--accent), var(--accent)) top left / 2px 1rem,
+    linear-gradient(var(--accent), var(--accent)) top right / 1rem 2px,
+    linear-gradient(var(--accent), var(--accent)) top right / 2px 1rem,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 1rem 2px,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 2px 1rem,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 1rem 2px,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 2px 1rem;
+  background-repeat: no-repeat;
+}
+
+/* pointer and scroll effects*/
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(160, 210, 255, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(160, 210, 255, 0.5) 1px, transparent 1px),
+      linear-gradient(rgba(160, 210, 255, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(160, 210, 255, 0.3) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    -webkit-mask-image: radial-gradient(circle 220px at var(--mx, -999px) var(--my, -999px), #000, transparent);
+    mask-image: radial-gradient(circle 220px at var(--mx, -999px) var(--my, -999px), #000, transparent);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.line::after {
+  transform: scaleX(0);
+}
+
+.line.drawn::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 40rem) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .band h2::after {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,44 @@
+
+main.wide {
+  max-width: 80rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  background: rgba(7, 32, 58, 0.75);
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  column-gap: 1.25rem;
+  align-items: start;
+  text-align: left;
+}
+
+.project img {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  grid-row: 1 / span 2;
+  margin: 0;
+}
+
+.project h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.project p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
